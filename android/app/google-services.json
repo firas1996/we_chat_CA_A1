@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "734494511913",
+    "project_id": "flutter-we-chat-ca1",
+    "storage_bucket": "flutter-we-chat-ca1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734494511913:android:516286d309fa0494cd5d38",
+        "android_client_info": {
+          "package_name": "com.example.we_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaWI7B8yc878UJ2XA4dRqa7f0xwAyPzS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
