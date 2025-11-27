@@ -8,6 +8,21 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  final _formKey = GlobalKey<FormState>();
+  var _isLogin = true;
+  var email = '';
+  var password = '';
+
+  void _submit() {
+    final isValid = _formKey.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+    print('Email: $email');
+    print('Password: $password');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +37,7 @@ class _AuthScreenState extends State<AuthScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Form(
+                  key: _formKey,
                   child: Column(
                     children: [
                       TextFormField(
@@ -41,7 +57,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           return null;
                         },
                         onSaved: (value) {
-                          print(value);
+                          email = value!;
                         },
                       ),
                       const SizedBox(height: 10),
@@ -62,17 +78,25 @@ class _AuthScreenState extends State<AuthScreen> {
                           return null;
                         },
                         onSaved: (value) {
-                          print(value);
+                          password = value!;
                         },
                       ),
                       const SizedBox(height: 20),
                       ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Login'),
+                        onPressed: _submit,
+                        child: Text(_isLogin ? 'Login' : 'Sign Up'),
                       ),
                       TextButton(
-                        onPressed: () {},
-                        child: Text("Create new account"),
+                        onPressed: () {
+                          setState(() {
+                            _isLogin = !_isLogin;
+                          });
+                        },
+                        child: Text(
+                          _isLogin
+                              ? "Create new account"
+                              : "Already have an account?",
+                        ),
                       ),
                     ],
                   ),
